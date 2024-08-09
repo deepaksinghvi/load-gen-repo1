@@ -13,7 +13,7 @@
       },
       {
       "task_name": "agent-traffic",
-      "script_name": "use-case-2-new.jmx",
+      "script_name": "use-case-1-new.jmx",
       "user_files": "users2.csv",
       "data_files": {
           "account_file" : "accounts.csv" 
