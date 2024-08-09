@@ -3,7 +3,7 @@
     "tasks": [
       {
       "task_name": "mobile-traffic",
-      "script_name": "use-case-5-livemonitoring.jmx",
+      "script_name": "use-case-1-new.jmx",
       "user_files": "users1.csv",
       "data_files": {
           "account_file" : "accounts.csv",
@@ -13,7 +13,7 @@
       },
       {
       "task_name": "agent-traffic",
-      "script_name": "use-case-2.jmx",
+      "script_name": "use-case-2-new.jmx",
       "user_files": "users2.csv",
       "data_files": {
           "account_file" : "accounts.csv" 
@@ -21,7 +21,7 @@
       },
       {
       "task_name": "store-traffic",
-      "script_name": "use-case-3.jmx",
+      "script_name": "use-case-3-new.jmx",
       "user_files": "users3.csv",
       "data_files": {
           "opportunity_file" : "opportunities.csv"  
@@ -29,7 +29,7 @@
       },
       {
         "task_name": "integration-traffic",
-        "script_name": "use-case-4.jmx"
+        "script_name": "use-case-4-new.jmx"
       }
     ]
   }
