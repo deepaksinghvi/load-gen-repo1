@@ -32,11 +32,6 @@
               <stringProp name="Argument.value">${__P(account_file,../data-files/accounts.csv)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
-            <elementProp name="USERNAME_FILE" elementType="Argument">
-              <stringProp name="Argument.name">USERNAME_FILE</stringProp>
-              <stringProp name="Argument.value">${__P(username_file,../user-files/users1.csv)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
             <elementProp name="CONTACT_FILE" elementType="Argument">
               <stringProp name="Argument.name">CONTACT_FILE</stringProp>
               <stringProp name="Argument.value">${__P(contact_file,../data-files/contacts.csv)}</stringProp>
@@ -45,11 +40,6 @@
             <elementProp name="OPPORTUNITY_FILE" elementType="Argument">
               <stringProp name="Argument.name">OPPORTUNITY_FILE</stringProp>
               <stringProp name="Argument.value">${__P(opportunity_file,../data-files/opportunities.csv)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="ACCOUNT_FILE" elementType="Argument">
-              <stringProp name="Argument.name">ACCOUNT_FILE</stringProp>
-              <stringProp name="Argument.value">${__P(account_file,../data-files/accounts.csv)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           <elementProp name="POD_NAME" elementType="Argument">
