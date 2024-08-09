@@ -343,6 +343,7 @@
             </collectionProp>
             <stringProp name="TestPlan.comments">This listener &quot;measures&quot; everything, sometimes in summaries, sometimes in histograms.</stringProp>
           </com.github.johrstrom.listener.PrometheusListener>
+        <hashTree/>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
