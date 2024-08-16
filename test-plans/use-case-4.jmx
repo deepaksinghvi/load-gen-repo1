@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="integration-traffic">
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Arguments">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
@@ -21,7 +21,7 @@
         <stringProp name="Unit">S</stringProp>
       </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
       <hashTree>
-        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="Integration - Throughput Shaping Timer" enabled="true">
+        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="Integration - Throughput Shaping Timer">
           <collectionProp name="load_profile">
             <collectionProp name="26939359">
               <stringProp name="1">1</stringProp>
@@ -41,7 +41,11 @@
           </collectionProp>
         </kg.apc.jmeter.timers.VariableThroughputTimer>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="B2B Integration - Create Product" enabled="true">
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
+          <stringProp name="ConstantTimer.delay">1000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="B2B Integration - Create Product">
           <stringProp name="HTTPSampler.domain">fakestoreapi.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">products</stringProp>
@@ -65,69 +69,14 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="B2B Integration - Get Products" enabled="true">
-          <stringProp name="HTTPSampler.domain">fakestoreapi.com</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/products/categories</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <stringProp name="HTTPSampler.method">GET</stringProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-            <collectionProp name="Arguments.arguments">
-          <elementProp name="POD_NAME" elementType="Argument">
-            <stringProp name="Argument.name">POD_NAME</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;POD_NAME&quot;))}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="ORG_ID" elementType="Argument">
-            <stringProp name="Argument.name">ORG_ID</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;ORG_ID&quot;))}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="USER_ID" elementType="Argument">
-            <stringProp name="Argument.name">USER_ID</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;USER_ID&quot;))}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="ORG_NAME" elementType="Argument">
-            <stringProp name="Argument.name">ORG_NAME</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;ORG_NAME&quot;))}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="POD_TYPE" elementType="Argument">
-            <stringProp name="Argument.name">POD_TYPE</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;POD_TYPE&quot;))}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TEST_RUN_ID" elementType="Argument">
-            <stringProp name="Argument.name">TEST_RUN_ID</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;TEST_RUN_ID&quot;))}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="POD_ID" elementType="Argument">
-            <stringProp name="Argument.name">POD_ID</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;POD_ID&quot;))}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="TASK_NAME" elementType="Argument">
-            <stringProp name="Argument.name">TASK_NAME</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;TASK_NAME&quot;))}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="SCRIPT_NAME" elementType="Argument">
-            <stringProp name="Argument.name">SCRIPT_NAME</stringProp>
-            <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;SCRIPT_NAME&quot;))}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-        </collectionProp>
-          </elementProp>
-        </HTTPSamplerProxy>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
+          <stringProp name="ConstantTimer.delay">1000</stringProp>
+        </ConstantTimer>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="B2B Integration - Product Categories" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="B2B Integration - Get Products">
           <stringProp name="HTTPSampler.domain">fakestoreapi.com</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/products/categories/1</stringProp>
+          <stringProp name="HTTPSampler.path">product/1333</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -136,6 +85,47 @@
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
         </HTTPSamplerProxy>
+        <hashTree/>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
+          <stringProp name="ConstantTimer.delay">1000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -174,177 +164,7 @@
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <com.github.johrstrom.listener.PrometheusListener guiclass="com.github.johrstrom.listener.gui.PrometheusListenerGui" testclass="com.github.johrstrom.listener.PrometheusListener" testname="Main prometheus listener" enabled="true">
-            <collectionProp name="prometheus.collector_definitions">
-              <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
-                <stringProp name="collector.help">the response time for a jsr223 sampler</stringProp>
-                <stringProp name="collector.metric_name">jsr223_rt_as_hist</stringProp>
-                <stringProp name="collector.type">HISTOGRAM</stringProp>
-                <collectionProp name="collector.labels">
-                  <stringProp name="102727412">label</stringProp>
-                  <stringProp name="-1955326858">ORG_ID</stringProp>
-                  <stringProp name="570880527">USER_ID</stringProp>
-                  <stringProp name="2126713638">ORG_NAME</stringProp>
-                  <stringProp name="1121327380">POD_TYPE</stringProp>
-                  <stringProp name="219737020">TEST_RUN_ID</stringProp>
-                  <stringProp name="-1929557643">POD_ID</stringProp>
-                  <stringProp name="-1298093819">TASK_NAME</stringProp>
-                  <stringProp name="1864936831">SCRIPT_NAME</stringProp>
-                </collectionProp>
-                <stringProp name="collector.quantiles_or_buckets">100,500,1000,3000</stringProp>
-                <stringProp name="listener.collector.listen_to">samples</stringProp>
-                <stringProp name="listener.collector.measuring">ResponseTime</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
-                <stringProp name="collector.help">the response time for a jsr223 sampler</stringProp>
-                <stringProp name="collector.metric_name">jsr223_rt_as_summary</stringProp>
-                <stringProp name="collector.type">SUMMARY</stringProp>
-                <collectionProp name="collector.labels">
-                  <stringProp name="50511102">category</stringProp>
-                  <stringProp name="102727412">label</stringProp>
-                  <stringProp name="3059181">code</stringProp>
-                  <stringProp name="-1955326858">ORG_ID</stringProp>
-                  <stringProp name="570880527">USER_ID</stringProp>
-                  <stringProp name="2126713638">ORG_NAME</stringProp>
-                  <stringProp name="1121327380">POD_TYPE</stringProp>
-                  <stringProp name="219737020">TEST_RUN_ID</stringProp>
-                  <stringProp name="-1929557643">POD_ID</stringProp>
-                  <stringProp name="-1298093819">TASK_NAME</stringProp>
-                  <stringProp name="1864936831">SCRIPT_NAME</stringProp>
-                </collectionProp>
-                <stringProp name="collector.quantiles_or_buckets">0.75,0.5|0.95,0.1|0.99,0.01</stringProp>
-                <stringProp name="listener.collector.measuring">ResponseTime</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
-                <stringProp name="collector.help">default help string</stringProp>
-                <stringProp name="collector.metric_name">jsr223_count_total</stringProp>
-                <stringProp name="collector.type">COUNTER</stringProp>
-                <collectionProp name="collector.labels">
-                  <stringProp name="102727412">label</stringProp>
-                  <stringProp name="3059181">code</stringProp>
-                  <stringProp name="-1955326858">ORG_ID</stringProp>
-                  <stringProp name="570880527">USER_ID</stringProp>
-                  <stringProp name="2126713638">ORG_NAME</stringProp>
-                  <stringProp name="1121327380">POD_TYPE</stringProp>
-                  <stringProp name="219737020">TEST_RUN_ID</stringProp>
-                  <stringProp name="-1929557643">POD_ID</stringProp>
-                  <stringProp name="-1298093819">TASK_NAME</stringProp>
-                  <stringProp name="1864936831">SCRIPT_NAME</stringProp>
-                </collectionProp>
-                <stringProp name="collector.quantiles_or_buckets"></stringProp>
-                <stringProp name="listener.collector.measuring">CountTotal</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
-                <stringProp name="collector.help">the total number of successful samplers</stringProp>
-                <stringProp name="collector.metric_name">jsr223_success_total</stringProp>
-                <stringProp name="collector.type">COUNTER</stringProp>
-                <collectionProp name="collector.labels">
-                  <stringProp name="102727412">label</stringProp>
-                  <stringProp name="-1955326858">ORG_ID</stringProp>
-                  <stringProp name="570880527">USER_ID</stringProp>
-                  <stringProp name="2126713638">ORG_NAME</stringProp>
-                  <stringProp name="1121327380">POD_TYPE</stringProp>
-                  <stringProp name="219737020">TEST_RUN_ID</stringProp>
-                  <stringProp name="-1929557643">POD_ID</stringProp>
-                  <stringProp name="-1298093819">TASK_NAME</stringProp>
-                  <stringProp name="1864936831">SCRIPT_NAME</stringProp>
-                </collectionProp>
-                <stringProp name="collector.quantiles_or_buckets"></stringProp>
-                <stringProp name="listener.collector.measuring">SuccessTotal</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
-                <stringProp name="collector.help">the response size for a jsr223 sampler</stringProp>
-                <stringProp name="collector.metric_name">jsr223_rsize_as_hist</stringProp>
-                <stringProp name="collector.type">HISTOGRAM</stringProp>
-                <collectionProp name="collector.labels">
-                  <stringProp name="-1955326858">ORG_ID</stringProp>
-                  <stringProp name="570880527">USER_ID</stringProp>
-                  <stringProp name="2126713638">ORG_NAME</stringProp>
-                  <stringProp name="1121327380">POD_TYPE</stringProp>
-                  <stringProp name="219737020">TEST_RUN_ID</stringProp>
-                  <stringProp name="-1929557643">POD_ID</stringProp>
-                  <stringProp name="-1298093819">TASK_NAME</stringProp>
-                  <stringProp name="1864936831">SCRIPT_NAME</stringProp>
-                </collectionProp>
-                <stringProp name="collector.quantiles_or_buckets">100,500,1000,3000</stringProp>
-                <stringProp name="listener.collector.measuring">ResponseSize</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
-                <stringProp name="collector.help">success ratio of the can_fail_sampler</stringProp>
-                <stringProp name="collector.metric_name">jsr223_can_fail</stringProp>
-                <stringProp name="collector.type">SUCCESS_RATIO</stringProp>
-                <collectionProp name="collector.labels">
-                  <stringProp name="-1955326858">ORG_ID</stringProp>
-                  <stringProp name="570880527">USER_ID</stringProp>
-                  <stringProp name="2126713638">ORG_NAME</stringProp>
-                  <stringProp name="1121327380">POD_TYPE</stringProp>
-                  <stringProp name="219737020">TEST_RUN_ID</stringProp>
-                  <stringProp name="-1929557643">POD_ID</stringProp>
-                  <stringProp name="-1298093819">TASK_NAME</stringProp>
-                  <stringProp name="1864936831">SCRIPT_NAME</stringProp>
-                </collectionProp>
-                <stringProp name="collector.quantiles_or_buckets"></stringProp>
-                <stringProp name="listener.collector.measuring">SuccessRatio</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
-                <stringProp name="collector.help">the latency (ttfb) for a jsr223 sampler</stringProp>
-                <stringProp name="collector.metric_name">jsr223_latency_as_hist</stringProp>
-                <stringProp name="collector.type">HISTOGRAM</stringProp>
-                <collectionProp name="collector.labels">
-                  <stringProp name="102727412">label</stringProp>
-                  <stringProp name="-1955326858">ORG_ID</stringProp>
-                  <stringProp name="570880527">USER_ID</stringProp>
-                  <stringProp name="2126713638">ORG_NAME</stringProp>
-                  <stringProp name="1121327380">POD_TYPE</stringProp>
-                  <stringProp name="219737020">TEST_RUN_ID</stringProp>
-                  <stringProp name="-1929557643">POD_ID</stringProp>
-                  <stringProp name="-1298093819">TASK_NAME</stringProp>
-                  <stringProp name="1864936831">SCRIPT_NAME</stringProp>
-                </collectionProp>
-                <stringProp name="collector.quantiles_or_buckets">100,500,1000,3000</stringProp>
-                <stringProp name="listener.collector.measuring">Latency</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
-                <stringProp name="collector.help">the idle time for a jsr223 sampler</stringProp>
-                <stringProp name="collector.metric_name">jsr223_idle_time</stringProp>
-                <stringProp name="collector.type">SUMMARY</stringProp>
-                <collectionProp name="collector.labels">
-                  <stringProp name="-1955326858">ORG_ID</stringProp>
-                  <stringProp name="570880527">USER_ID</stringProp>
-                  <stringProp name="2126713638">ORG_NAME</stringProp>
-                  <stringProp name="1121327380">POD_TYPE</stringProp>
-                  <stringProp name="219737020">TEST_RUN_ID</stringProp>
-                  <stringProp name="-1929557643">POD_ID</stringProp>
-                  <stringProp name="-1298093819">TASK_NAME</stringProp>
-                  <stringProp name="1864936831">SCRIPT_NAME</stringProp>
-                </collectionProp>
-                <stringProp name="collector.quantiles_or_buckets">0.75,0.5|0.95,0.1|0.99,0.01</stringProp>
-                <stringProp name="listener.collector.measuring">IdleTime</stringProp>
-              </elementProp>
-              <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
-                <stringProp name="collector.help">default help string</stringProp>
-                <stringProp name="collector.metric_name">jsr223_assertions</stringProp>
-                <stringProp name="collector.type">SUCCESS_RATIO</stringProp>
-                <collectionProp name="collector.labels">
-                  <stringProp name="102727412">label</stringProp>
-                  <stringProp name="-1955326858">ORG_ID</stringProp>
-                  <stringProp name="570880527">USER_ID</stringProp>
-                  <stringProp name="2126713638">ORG_NAME</stringProp>
-                  <stringProp name="1121327380">POD_TYPE</stringProp>
-                  <stringProp name="219737020">TEST_RUN_ID</stringProp>
-                  <stringProp name="-1929557643">POD_ID</stringProp>
-                  <stringProp name="-1298093819">TASK_NAME</stringProp>
-                  <stringProp name="1864936831">SCRIPT_NAME</stringProp>
-                </collectionProp>
-                <stringProp name="collector.quantiles_or_buckets"></stringProp>
-                <stringProp name="listener.collector.measuring">SuccessRatio</stringProp>
-                <stringProp name="listener.collector.listen_to">assertions</stringProp>
-              </elementProp>
-            </collectionProp>
-            <stringProp name="TestPlan.comments">This listener &quot;measures&quot; everything, sometimes in summaries, sometimes in histograms.</stringProp>
-          </com.github.johrstrom.listener.PrometheusListener>
-        <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Active Threads Over Time" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -379,9 +199,62 @@
             </value>
           </objProp>
           <stringProp name="filename"></stringProp>
-        </ResultCollector>
+          <longProp name="interval_grouping">500</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+        </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
         <hashTree/>
-        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="Integration - Transactions per Second" enabled="true">
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">500</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+        </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+        <hashTree/>
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -426,95 +299,175 @@
           <boolProp name="exclude_checkbox_state">false</boolProp>
         </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
         <hashTree/>
-        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="Integration - Response Times Over Time" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <url>true</url>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-          <longProp name="interval_grouping">500</longProp>
-          <boolProp name="graph_aggregated">false</boolProp>
-          <stringProp name="include_sample_labels"></stringProp>
-          <stringProp name="exclude_sample_labels"></stringProp>
-          <stringProp name="start_offset"></stringProp>
-          <stringProp name="end_offset"></stringProp>
-          <boolProp name="include_checkbox_state">false</boolProp>
-          <boolProp name="exclude_checkbox_state">false</boolProp>
-        </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
-        <hashTree/>
-        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ThreadsStateOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="Integration - Active Threads Over Time" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>false</xml>
-              <fieldNames>true</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-              <sentBytes>true</sentBytes>
-              <url>true</url>
-              <threadCounts>true</threadCounts>
-              <idleTime>true</idleTime>
-              <connectTime>true</connectTime>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-          <longProp name="interval_grouping">500</longProp>
-          <boolProp name="graph_aggregated">false</boolProp>
-          <stringProp name="include_sample_labels"></stringProp>
-          <stringProp name="exclude_sample_labels"></stringProp>
-          <stringProp name="start_offset"></stringProp>
-          <stringProp name="end_offset"></stringProp>
-          <boolProp name="include_checkbox_state">false</boolProp>
-          <boolProp name="exclude_checkbox_state">false</boolProp>
-        </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+        <com.github.johrstrom.listener.PrometheusListener guiclass="com.github.johrstrom.listener.gui.PrometheusListenerGui" testclass="com.github.johrstrom.listener.PrometheusListener" testname="Main prometheus listener" enabled="true">
+          <collectionProp name="prometheus.collector_definitions">
+            <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+              <stringProp name="collector.help">the response time for a jsr223 sampler</stringProp>
+              <stringProp name="collector.metric_name">jsr223_rt_as_hist</stringProp>
+              <stringProp name="collector.type">HISTOGRAM</stringProp>
+              <collectionProp name="collector.labels">
+                <stringProp name="102727412">label</stringProp>
+                <stringProp name="-1955326858">ORG_ID</stringProp>
+                <stringProp name="570880527">USER_ID</stringProp>
+                <stringProp name="2126713638">ORG_NAME</stringProp>
+                <stringProp name="1121327380">POD_TYPE</stringProp>
+                <stringProp name="219737020">TEST_RUN_ID</stringProp>
+                <stringProp name="-1929557643">POD_ID</stringProp>
+                <stringProp name="-1298093819">TASK_NAME</stringProp>
+                <stringProp name="1864936831">SCRIPT_NAME</stringProp>
+              </collectionProp>
+              <stringProp name="collector.quantiles_or_buckets">100,500,1000,3000</stringProp>
+              <stringProp name="listener.collector.listen_to">samples</stringProp>
+              <stringProp name="listener.collector.measuring">ResponseTime</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+              <stringProp name="collector.help">the response time for a jsr223 sampler</stringProp>
+              <stringProp name="collector.metric_name">jsr223_rt_as_summary</stringProp>
+              <stringProp name="collector.type">SUMMARY</stringProp>
+              <collectionProp name="collector.labels">
+                <stringProp name="50511102">category</stringProp>
+                <stringProp name="102727412">label</stringProp>
+                <stringProp name="3059181">code</stringProp>
+                <stringProp name="-1955326858">ORG_ID</stringProp>
+                <stringProp name="570880527">USER_ID</stringProp>
+                <stringProp name="2126713638">ORG_NAME</stringProp>
+                <stringProp name="1121327380">POD_TYPE</stringProp>
+                <stringProp name="219737020">TEST_RUN_ID</stringProp>
+                <stringProp name="-1929557643">POD_ID</stringProp>
+                <stringProp name="-1298093819">TASK_NAME</stringProp>
+                <stringProp name="1864936831">SCRIPT_NAME</stringProp>
+              </collectionProp>
+              <stringProp name="collector.quantiles_or_buckets">0.75,0.5|0.95,0.1|0.99,0.01</stringProp>
+              <stringProp name="listener.collector.measuring">ResponseTime</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+              <stringProp name="collector.help">default help string</stringProp>
+              <stringProp name="collector.metric_name">jsr223_count_total</stringProp>
+              <stringProp name="collector.type">COUNTER</stringProp>
+              <collectionProp name="collector.labels">
+                <stringProp name="102727412">label</stringProp>
+                <stringProp name="3059181">code</stringProp>
+                <stringProp name="-1955326858">ORG_ID</stringProp>
+                <stringProp name="570880527">USER_ID</stringProp>
+                <stringProp name="2126713638">ORG_NAME</stringProp>
+                <stringProp name="1121327380">POD_TYPE</stringProp>
+                <stringProp name="219737020">TEST_RUN_ID</stringProp>
+                <stringProp name="-1929557643">POD_ID</stringProp>
+                <stringProp name="-1298093819">TASK_NAME</stringProp>
+                <stringProp name="1864936831">SCRIPT_NAME</stringProp>
+              </collectionProp>
+              <stringProp name="collector.quantiles_or_buckets"></stringProp>
+              <stringProp name="listener.collector.measuring">CountTotal</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+              <stringProp name="collector.help">the total number of successful samplers</stringProp>
+              <stringProp name="collector.metric_name">jsr223_success_total</stringProp>
+              <stringProp name="collector.type">COUNTER</stringProp>
+              <collectionProp name="collector.labels">
+                <stringProp name="102727412">label</stringProp>
+                <stringProp name="-1955326858">ORG_ID</stringProp>
+                <stringProp name="570880527">USER_ID</stringProp>
+                <stringProp name="2126713638">ORG_NAME</stringProp>
+                <stringProp name="1121327380">POD_TYPE</stringProp>
+                <stringProp name="219737020">TEST_RUN_ID</stringProp>
+                <stringProp name="-1929557643">POD_ID</stringProp>
+                <stringProp name="-1298093819">TASK_NAME</stringProp>
+                <stringProp name="1864936831">SCRIPT_NAME</stringProp>
+              </collectionProp>
+              <stringProp name="collector.quantiles_or_buckets"></stringProp>
+              <stringProp name="listener.collector.measuring">SuccessTotal</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+              <stringProp name="collector.help">the response size for a jsr223 sampler</stringProp>
+              <stringProp name="collector.metric_name">jsr223_rsize_as_hist</stringProp>
+              <stringProp name="collector.type">HISTOGRAM</stringProp>
+              <collectionProp name="collector.labels">
+                <stringProp name="-1955326858">ORG_ID</stringProp>
+                <stringProp name="570880527">USER_ID</stringProp>
+                <stringProp name="2126713638">ORG_NAME</stringProp>
+                <stringProp name="1121327380">POD_TYPE</stringProp>
+                <stringProp name="219737020">TEST_RUN_ID</stringProp>
+                <stringProp name="-1929557643">POD_ID</stringProp>
+                <stringProp name="-1298093819">TASK_NAME</stringProp>
+                <stringProp name="1864936831">SCRIPT_NAME</stringProp>
+              </collectionProp>
+              <stringProp name="collector.quantiles_or_buckets">100,500,1000,3000</stringProp>
+              <stringProp name="listener.collector.measuring">ResponseSize</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+              <stringProp name="collector.help">success ratio of the can_fail_sampler</stringProp>
+              <stringProp name="collector.metric_name">jsr223_can_fail</stringProp>
+              <stringProp name="collector.type">SUCCESS_RATIO</stringProp>
+              <collectionProp name="collector.labels">
+                <stringProp name="-1955326858">ORG_ID</stringProp>
+                <stringProp name="570880527">USER_ID</stringProp>
+                <stringProp name="2126713638">ORG_NAME</stringProp>
+                <stringProp name="1121327380">POD_TYPE</stringProp>
+                <stringProp name="219737020">TEST_RUN_ID</stringProp>
+                <stringProp name="-1929557643">POD_ID</stringProp>
+                <stringProp name="-1298093819">TASK_NAME</stringProp>
+                <stringProp name="1864936831">SCRIPT_NAME</stringProp>
+              </collectionProp>
+              <stringProp name="collector.quantiles_or_buckets"></stringProp>
+              <stringProp name="listener.collector.measuring">SuccessRatio</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+              <stringProp name="collector.help">the latency (ttfb) for a jsr223 sampler</stringProp>
+              <stringProp name="collector.metric_name">jsr223_latency_as_hist</stringProp>
+              <stringProp name="collector.type">HISTOGRAM</stringProp>
+              <collectionProp name="collector.labels">
+                <stringProp name="102727412">label</stringProp>
+                <stringProp name="-1955326858">ORG_ID</stringProp>
+                <stringProp name="570880527">USER_ID</stringProp>
+                <stringProp name="2126713638">ORG_NAME</stringProp>
+                <stringProp name="1121327380">POD_TYPE</stringProp>
+                <stringProp name="219737020">TEST_RUN_ID</stringProp>
+                <stringProp name="-1929557643">POD_ID</stringProp>
+                <stringProp name="-1298093819">TASK_NAME</stringProp>
+                <stringProp name="1864936831">SCRIPT_NAME</stringProp>
+              </collectionProp>
+              <stringProp name="collector.quantiles_or_buckets">100,500,1000,3000</stringProp>
+              <stringProp name="listener.collector.measuring">Latency</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+              <stringProp name="collector.help">the idle time for a jsr223 sampler</stringProp>
+              <stringProp name="collector.metric_name">jsr223_idle_time</stringProp>
+              <stringProp name="collector.type">SUMMARY</stringProp>
+              <collectionProp name="collector.labels">
+                <stringProp name="-1955326858">ORG_ID</stringProp>
+                <stringProp name="570880527">USER_ID</stringProp>
+                <stringProp name="2126713638">ORG_NAME</stringProp>
+                <stringProp name="1121327380">POD_TYPE</stringProp>
+                <stringProp name="219737020">TEST_RUN_ID</stringProp>
+                <stringProp name="-1929557643">POD_ID</stringProp>
+                <stringProp name="-1298093819">TASK_NAME</stringProp>
+                <stringProp name="1864936831">SCRIPT_NAME</stringProp>
+              </collectionProp>
+              <stringProp name="collector.quantiles_or_buckets">0.75,0.5|0.95,0.1|0.99,0.01</stringProp>
+              <stringProp name="listener.collector.measuring">IdleTime</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="com.github.johrstrom.listener.ListenerCollectorConfig">
+              <stringProp name="collector.help">default help string</stringProp>
+              <stringProp name="collector.metric_name">jsr223_assertions</stringProp>
+              <stringProp name="collector.type">SUCCESS_RATIO</stringProp>
+              <collectionProp name="collector.labels">
+                <stringProp name="102727412">label</stringProp>
+                <stringProp name="-1955326858">ORG_ID</stringProp>
+                <stringProp name="570880527">USER_ID</stringProp>
+                <stringProp name="2126713638">ORG_NAME</stringProp>
+                <stringProp name="1121327380">POD_TYPE</stringProp>
+                <stringProp name="219737020">TEST_RUN_ID</stringProp>
+                <stringProp name="-1929557643">POD_ID</stringProp>
+                <stringProp name="-1298093819">TASK_NAME</stringProp>
+                <stringProp name="1864936831">SCRIPT_NAME</stringProp>
+              </collectionProp>
+              <stringProp name="collector.quantiles_or_buckets"></stringProp>
+              <stringProp name="listener.collector.measuring">SuccessRatio</stringProp>
+              <stringProp name="listener.collector.listen_to">assertions</stringProp>
+            </elementProp>
+          </collectionProp>
+          <stringProp name="TestPlan.comments">This listener &quot;measures&quot; everything, sometimes in summaries, sometimes in histograms.</stringProp>
+        </com.github.johrstrom.listener.PrometheusListener>
         <hashTree/>
       </hashTree>
     </hashTree>
