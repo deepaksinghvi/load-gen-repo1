@@ -19,7 +19,57 @@
         <stringProp name="Unit">S</stringProp>
       </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
       <hashTree>
-        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="Integration - Throughput Shaping Timer">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables"  enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="POD_NAME" elementType="Argument">
+              <stringProp name="Argument.name">POD_NAME</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;POD_NAME&quot;))}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="ORG_ID" elementType="Argument">
+              <stringProp name="Argument.name">ORG_ID</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;ORG_ID&quot;))}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="USER_ID" elementType="Argument">
+              <stringProp name="Argument.name">USER_ID</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;USER_ID&quot;))}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="ORG_NAME" elementType="Argument">
+              <stringProp name="Argument.name">ORG_NAME</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;ORG_NAME&quot;))}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="POD_TYPE" elementType="Argument">
+              <stringProp name="Argument.name">POD_TYPE</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;POD_TYPE&quot;))}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="TEST_RUN_ID" elementType="Argument">
+              <stringProp name="Argument.name">TEST_RUN_ID</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;TEST_RUN_ID&quot;))}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="POD_ID" elementType="Argument">
+              <stringProp name="Argument.name">POD_ID</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;POD_ID&quot;))}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="TASK_NAME" elementType="Argument">
+              <stringProp name="Argument.name">TASK_NAME</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;TASK_NAME&quot;))}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="SCRIPT_NAME" elementType="Argument">
+              <stringProp name="Argument.name">SCRIPT_NAME</stringProp>
+              <stringProp name="Argument.value">${__BeanShell(System.getenv(&quot;SCRIPT_NAME&quot;))}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="Integration - Throughput Shaping Timer" enabled="true">
           <collectionProp name="load_profile">
             <collectionProp name="26939359">
               <stringProp name="1">1</stringProp>
@@ -88,7 +138,7 @@
           <stringProp name="ConstantTimer.delay">1000</stringProp>
         </ConstantTimer>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -125,7 +175,7 @@
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -207,7 +257,7 @@
           <boolProp name="exclude_checkbox_state">false</boolProp>
         </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
         <hashTree/>
-        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time">
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -252,7 +302,7 @@
           <boolProp name="exclude_checkbox_state">false</boolProp>
         </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
         <hashTree/>
-        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second">
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
