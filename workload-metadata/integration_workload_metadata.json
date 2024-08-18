@@ -9,6 +9,38 @@
         {
             "task_name": "integration-traffic-2",
             "script_name": "use-case-4.jmx"
+        },
+        {
+            "task_name": "integration-traffic-3",
+            "script_name": "use-case-4.jmx"
+        },
+        {
+            "task_name": "integration-traffic-4",
+            "script_name": "use-case-4.jmx"
+        },
+        {
+            "task_name": "integration-traffic-5",
+            "script_name": "use-case-4.jmx"
+        },
+        {
+            "task_name": "integration-traffic-6",
+            "script_name": "use-case-4.jmx"
+        },
+        {
+            "task_name": "integration-traffic-7",
+            "script_name": "use-case-4.jmx"
+        },
+        {
+            "task_name": "integration-traffic-8",
+            "script_name": "use-case-4.jmx"
+        },
+        {
+            "task_name": "integration-traffic-9",
+            "script_name": "use-case-4.jmx"
+        },
+        {
+            "task_name": "integration-traffic-10",
+            "script_name": "use-case-4.jmx"
         }
     ]
 }
